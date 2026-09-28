@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Quiz de Inteligência Artificial</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="cabecalho">
+            <div class="icone">🤖</div>
+
+            <h1>Quiz de Inteligência Artificial</h1>
+
+            <p>
+                Teste seus conhecimentos sobre Inteligência Artificial!
+            </p>
+        </div>
+
+        <div id="quiz">
+
+            <div class="topo">
+                <span id="contador">Pergunta 1 de 10</span>
+                <span id="pontos">🏆 0 pontos</span>
+            </div>
+
+            <div class="barra">
+                <div id="progresso"></div>
+            </div>
+
+            <div class="pergunta-box">
+
+                <h2 id="pergunta">
+                    Pergunta
+                </h2>
+
+                <div id="opcoes"></div>
+
+                <div id="feedback"></div>
+
+                <button id="proxima">
+                    Próxima pergunta ➜
+                </button>
+
+            </div>
+
+        </div>
+
+        <div id="resultado" class="escondido">
+
+            <div class="emoji-final">🤖</div>
+
+            <h2>Quiz finalizado!</h2>
+
+            <p id="mensagem"></p>
+
+            <div class="resultado-box">
+                <span>Sua pontuação</span>
+
+                <strong id="pontuacao-final">
+                    0/10
+                </strong>
+
+                <span id="porcentagem">
+                    0%
+                </span>
+            </div>
+
+            <button id="reiniciar">
+                🔄 Jogar novamente
+            </button>
+
+        </div>
+
+        <footer>
+            🤖 Quiz de Inteligência Artificial
+        </footer>
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

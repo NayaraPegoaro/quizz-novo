@@ -1,0 +1,801 @@
+/* =====================================================
+   CONFIGURAÇÕES GERAIS
+===================================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+
+    font-family:
+        Inter,
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    color: #ffffff;
+
+    background:
+        radial-gradient(
+            circle at 20% 20%,
+            rgba(0, 229, 255, 0.18),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 80% 80%,
+            rgba(162, 0, 255, 0.2),
+            transparent 35%
+        ),
+        linear-gradient(
+            135deg,
+            #050816,
+            #0b1026 45%,
+            #160b2e
+        );
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 30px;
+
+    overflow-x: hidden;
+}
+
+
+/* =====================================================
+   EFEITO DE FUNDO
+===================================================== */
+
+body::before,
+body::after {
+    content: "";
+
+    position: fixed;
+
+    width: 350px;
+    height: 350px;
+
+    border-radius: 50%;
+
+    filter: blur(90px);
+
+    opacity: 0.25;
+
+    pointer-events: none;
+
+    z-index: -1;
+}
+
+body::before {
+    background: #00e5ff;
+
+    top: -120px;
+    left: -100px;
+}
+
+body::after {
+    background: #9d00ff;
+
+    bottom: -120px;
+    right: -100px;
+}
+
+
+/* =====================================================
+   CONTAINER PRINCIPAL
+===================================================== */
+
+.container {
+    position: relative;
+
+    width: 100%;
+    max-width: 760px;
+
+    padding: 38px;
+
+    border-radius: 28px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(20, 27, 58, 0.94),
+            rgba(11, 15, 35, 0.94)
+        );
+
+    border: 1px solid rgba(255, 255, 255, 0.1);
+
+    box-shadow:
+        0 30px 80px rgba(0, 0, 0, 0.55),
+        inset 0 1px 0 rgba(255, 255, 255, 0.08);
+
+    backdrop-filter: blur(18px);
+
+    overflow: hidden;
+}
+
+
+/* Linha neon no topo */
+
+.container::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 10%;
+
+    width: 80%;
+    height: 2px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #00e5ff,
+            #9d4edd,
+            #00e5ff,
+            transparent
+        );
+
+    box-shadow:
+        0 0 15px #00e5ff,
+        0 0 30px #9d4edd;
+}
+
+
+/* =====================================================
+   CABEÇALHO
+===================================================== */
+
+.cabecalho {
+    text-align: center;
+
+    margin-bottom: 35px;
+}
+
+.icone {
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    width: 85px;
+    height: 85px;
+
+    margin: 0 auto 18px;
+
+    border-radius: 24px;
+
+    font-size: 48px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(0, 229, 255, 0.15),
+            rgba(157, 78, 221, 0.2)
+        );
+
+    border: 1px solid rgba(0, 229, 255, 0.3);
+
+    box-shadow:
+        0 0 25px rgba(0, 229, 255, 0.15),
+        inset 0 0 20px rgba(157, 78, 221, 0.08);
+
+    animation:
+        flutuar 3s ease-in-out infinite;
+}
+
+.cabecalho h1 {
+    margin: 10px 0;
+
+    font-size: 34px;
+
+    font-weight: 800;
+
+    letter-spacing: -1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #ffffff,
+            #8be9ff,
+            #c77dff
+        );
+
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    color: transparent;
+}
+
+.cabecalho p {
+    margin: 8px 0 0;
+
+    color: #9da8c7;
+
+    font-size: 15px;
+}
+
+
+/* =====================================================
+   TOPO DO QUIZ
+===================================================== */
+
+.topo {
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 12px;
+
+    color: #aab6d6;
+
+    font-size: 14px;
+
+    font-weight: 600;
+}
+
+#pontos {
+    color: #ffd166;
+
+    text-shadow:
+        0 0 10px rgba(255, 209, 102, 0.25);
+}
+
+
+/* =====================================================
+   BARRA DE PROGRESSO
+===================================================== */
+
+.barra {
+    position: relative;
+
+    width: 100%;
+    height: 9px;
+
+    margin-bottom: 28px;
+
+    background: #161c38;
+
+    border-radius: 20px;
+
+    overflow: hidden;
+
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+#progresso {
+    width: 10%;
+    height: 100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            #00e5ff,
+            #7b2cbf,
+            #c77dff
+        );
+
+    border-radius: 20px;
+
+    box-shadow:
+        0 0 12px #00e5ff,
+        0 0 25px rgba(157, 78, 221, 0.7);
+
+    transition:
+        width 0.5s ease;
+}
+
+
+/* =====================================================
+   CAIXA DA PERGUNTA
+===================================================== */
+
+.pergunta-box {
+    position: relative;
+
+    padding: 28px;
+
+    border-radius: 22px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(23, 30, 63, 0.95),
+            rgba(14, 19, 42, 0.95)
+        );
+
+    border: 1px solid rgba(139, 233, 255, 0.1);
+
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+#pergunta {
+    margin: 0 0 25px;
+
+    color: #ffffff;
+
+    font-size: 23px;
+
+    line-height: 1.45;
+
+    font-weight: 700;
+}
+
+
+/* =====================================================
+   OPÇÕES
+===================================================== */
+
+.opcao {
+    position: relative;
+
+    display: block;
+
+    width: 100%;
+
+    padding: 17px 18px;
+
+    margin-bottom: 13px;
+
+    border-radius: 14px;
+
+    border: 1px solid rgba(150, 170, 220, 0.15);
+
+    background:
+        rgba(255, 255, 255, 0.035);
+
+    color: #dbe5ff;
+
+    font-size: 16px;
+
+    font-weight: 500;
+
+    text-align: left;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        border-color 0.2s ease,
+        background 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.opcao:hover {
+    transform: translateX(5px);
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(0, 229, 255, 0.09),
+            rgba(157, 78, 221, 0.09)
+        );
+
+    border-color:
+        rgba(0, 229, 255, 0.45);
+
+    box-shadow:
+        0 0 20px rgba(0, 229, 255, 0.08);
+}
+
+
+/* =====================================================
+   RESPOSTA CORRETA
+===================================================== */
+
+.opcao.correta {
+    background:
+        linear-gradient(
+            90deg,
+            rgba(35, 200, 120, 0.2),
+            rgba(35, 200, 120, 0.08)
+        );
+
+    border-color: #28d17c;
+
+    color: #8ff0bd;
+
+    box-shadow:
+        0 0 20px rgba(40, 209, 124, 0.15);
+}
+
+
+/* =====================================================
+   RESPOSTA ERRADA
+===================================================== */
+
+.opcao.errada {
+    background:
+        linear-gradient(
+            90deg,
+            rgba(255, 60, 80, 0.2),
+            rgba(255, 60, 80, 0.08)
+        );
+
+    border-color: #ff4d67;
+
+    color: #ff9aaa;
+
+    box-shadow:
+        0 0 20px rgba(255, 77, 103, 0.15);
+}
+
+
+/* =====================================================
+   OPÇÕES DESABILITADAS
+===================================================== */
+
+.opcao.desabilitada {
+    cursor: default;
+
+    pointer-events: none;
+}
+
+
+/* =====================================================
+   FEEDBACK
+===================================================== */
+
+#feedback {
+    min-height: 35px;
+
+    margin: 18px 0;
+
+    padding: 10px;
+
+    border-radius: 10px;
+
+    text-align: center;
+
+    font-size: 14px;
+
+    line-height: 1.5;
+
+    font-weight: 600;
+}
+
+.feedback-certo {
+    color: #76e7a9;
+
+    background:
+        rgba(40, 209, 124, 0.06);
+}
+
+.feedback-errado {
+    color: #ff8d9c;
+
+    background:
+        rgba(255, 77, 103, 0.06);
+}
+
+
+/* =====================================================
+   BOTÕES
+===================================================== */
+
+button {
+    width: 100%;
+
+    padding: 16px;
+
+    border: none;
+
+    border-radius: 14px;
+
+    background:
+        linear-gradient(
+            100deg,
+            #00b4d8,
+            #7b2cbf
+        );
+
+    color: white;
+
+    font-size: 16px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 8px 25px rgba(123, 44, 191, 0.25);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        filter 0.2s ease;
+}
+
+button:hover {
+    transform: translateY(-3px);
+
+    filter: brightness(1.12);
+
+    box-shadow:
+        0 12px 30px rgba(0, 229, 255, 0.18),
+        0 10px 35px rgba(123, 44, 191, 0.25);
+}
+
+button:active {
+    transform: translateY(-1px);
+}
+
+button:disabled {
+    opacity: 0.35;
+
+    cursor: not-allowed;
+
+    transform: none;
+
+    filter: grayscale(0.3);
+
+    box-shadow: none;
+}
+
+
+/* =====================================================
+   RESULTADO
+===================================================== */
+
+#resultado {
+    text-align: center;
+
+    padding: 20px 0;
+}
+
+.escondido {
+    display: none;
+}
+
+.emoji-final {
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    width: 110px;
+    height: 110px;
+
+    margin: 0 auto 20px;
+
+    border-radius: 30px;
+
+    font-size: 60px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(0, 229, 255, 0.1),
+            rgba(157, 78, 221, 0.2)
+        );
+
+    border: 1px solid rgba(0, 229, 255, 0.25);
+
+    box-shadow:
+        0 0 40px rgba(0, 229, 255, 0.12);
+
+    animation:
+        pulsar 2s ease-in-out infinite;
+}
+
+#resultado h2 {
+    margin-bottom: 10px;
+
+    font-size: 30px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #ffffff,
+            #8be9ff,
+            #c77dff
+        );
+
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    color: transparent;
+}
+
+#mensagem {
+    color: #aab6d6;
+
+    font-size: 16px;
+
+    line-height: 1.6;
+}
+
+
+/* =====================================================
+   CAIXA DE RESULTADO
+===================================================== */
+
+.resultado-box {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+
+    margin: 28px 0;
+
+    padding: 28px;
+
+    border-radius: 20px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(0, 229, 255, 0.06),
+            rgba(157, 78, 221, 0.12)
+        );
+
+    border: 1px solid rgba(139, 233, 255, 0.12);
+
+    color: #aab6d6;
+}
+
+.resultado-box strong {
+    font-size: 52px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #00e5ff,
+            #c77dff
+        );
+
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    color: transparent;
+
+    text-shadow:
+        0 0 20px rgba(0, 229, 255, 0.15);
+}
+
+#porcentagem {
+    color: #ffffff;
+
+    font-size: 21px;
+
+    font-weight: 700;
+}
+
+
+/* =====================================================
+   RODAPÉ
+===================================================== */
+
+footer {
+    margin-top: 25px;
+
+    text-align: center;
+
+    color: #596582;
+
+    font-size: 12px;
+
+    letter-spacing: 0.5px;
+}
+
+
+/* =====================================================
+   ANIMAÇÕES
+===================================================== */
+
+@keyframes flutuar {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-7px);
+    }
+}
+
+@keyframes pulsar {
+
+    0%,
+    100% {
+        transform: scale(1);
+
+        box-shadow:
+            0 0 30px rgba(0, 229, 255, 0.1);
+    }
+
+    50% {
+        transform: scale(1.04);
+
+        box-shadow:
+            0 0 45px rgba(157, 78, 221, 0.25);
+    }
+}
+
+
+/* =====================================================
+   CELULAR
+===================================================== */
+
+@media (max-width: 600px) {
+
+    body {
+        padding: 12px;
+    }
+
+    .container {
+        padding: 23px;
+
+        border-radius: 22px;
+    }
+
+    .cabecalho {
+        margin-bottom: 25px;
+    }
+
+    .icone {
+        width: 70px;
+        height: 70px;
+
+        font-size: 40px;
+
+        border-radius: 20px;
+    }
+
+    .cabecalho h1 {
+        font-size: 26px;
+
+        line-height: 1.2;
+    }
+
+    .cabecalho p {
+        font-size: 14px;
+    }
+
+    .topo {
+        font-size: 12px;
+    }
+
+    .pergunta-box {
+        padding: 19px;
+
+        border-radius: 18px;
+    }
+
+    #pergunta {
+        font-size: 19px;
+
+        line-height: 1.4;
+    }
+
+    .opcao {
+        padding: 15px;
+
+        font-size: 14px;
+    }
+
+    #feedback {
+        font-size: 13px;
+    }
+
+    #resultado h2 {
+        font-size: 26px;
+    }
+
+    .resultado-box strong {
+        font-size: 44px;
+    }
+}
